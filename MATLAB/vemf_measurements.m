@@ -38,17 +38,20 @@ km_all = Vemf./omega_m;
 km_all = km_all(isfinite(km_all));
 km_avg = mean(km_all);
 
+
 % Plot the measurements and estimations
 clf
 plot(omega_m, Vemf./omega_m, 'o', 'linewidth', 2);
 hold on
 plot(omega_m, coeff(1) + coeff(2)*omega_m, 'linewidth', 2);
 plot(omega_m([1, end]), [km_avg, km_avg], '--', 'linewidth', 2);
+
+set(gca, 'FontSize', 20)
 ylim([0, 0.2]);
-xlabel('$\omega_m$', 'fontsize', 18, 'Interpreter', 'latex');
-ylabel('$v_{emf} / \omega_m$', 'fontsize', 18, ...
+xlabel('$\omega_m$', 'fontsize', 20, 'Interpreter', 'latex');
+ylabel('$v_{emf} / \omega_m$', 'fontsize', 20, ...
        'Interpreter', 'latex');
-title('$\omega_m vs. \frac{v_{emf}}{\omega_m}$', 'fontsize', 18, ...
+title('$\omega_m vs. \frac{v_{emf}}{\omega_m}$', 'fontsize', 20, ...
       'Interpreter', 'latex');
 legend('Measured points', 'Least square fit', 'Average fit');
 grid on;

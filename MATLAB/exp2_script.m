@@ -12,6 +12,7 @@ tau_m = 0.005;
 wf = 1/0.1;
 
 K = 1/(km+Rm*Io);
+% K = 14.7;
 tau = Jeq*Rm/(kt*km+Rm*kt*Io);
 Ktd = -Rm/(kt*km+Rm*kt*Io);
 tau_td = Jeq*Rm/(kt*km+Rm*kt*Io);

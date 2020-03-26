@@ -25,14 +25,18 @@ step_predicted = step_data_Value(:, 2);
 % *****************************************
 % * Experimently obtained tau, k: 90ms, 14.7
 tau = 90e-3;
-model = tf(14.7, [tau 1]);
+K = 14.5;
+model = tf(K, [tau 1]);
 [y, t_model] = step(8*model, 10);
 y = y - 60;
 plot(t - t(1), step_predicted, 'linewidth', 2);
 hold on
 plot(t - t(1), step_measured, 'linewidth', 2);
 plot(t_model + .16, y, 'linewidth', 2);
-xlabel('Time [s]', 'fontsize', 16);
-ylabel('Speed [rad/s]', 'fontsize', 16);
+
+set(gca, 'fontsize', 20)
+xlim([0 4]);
+xlabel('Time [s]');
+ylabel('Speed [rad/s]');
 legend('Predicted with k, \tau = 0', 'Measured', 'Step() simulation');
 grid on
